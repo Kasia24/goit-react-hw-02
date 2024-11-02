@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Description from "./Description";
-import Feedback from "./Feedback";
-import Options from "./Options";
-import Notification from "./Notification";
+import Description from "./Description/Description";
+import Feedback from "./Feedback/Feedback";
+import Options from "./Options/Options";
+import Notification from "./Notification/Notification";
 
 const App = () => {
   const [feedback, setFeedback] = useState({
