@@ -12,9 +12,13 @@ const App = () => {
   });
 
   useEffect(() => {
-    const savedFeedback = JSON.parse(localStorage.getItem("feedback"));
-    if (savedFeedback) {
-      setFeedback(savedFeedback);
+    try {
+      const savedFeedback = JSON.parse(localStorage.getItem("feedback"));
+      if (savedFeedback) {
+        setFeedback(savedFeedback);
+      }
+    } catch (error) {
+      console.error("Error parsing JSON from localStorage:", error);
     }
   }, []);
 
@@ -33,9 +37,16 @@ const App = () => {
     setFeedback({ good: 0, neutral: 0, bad: 0 });
   };
 
-  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positivePercentage =
-    totalFeedback > 0 ? Math.round((feedback.good / totalFeedback) * 100) : 0;
+  const calculateTotalFeedback = (feedback) =>
+    feedback.good + feedback.neutral + feedback.bad;
+
+  const calculatePositivePercentage = (feedback) => {
+    const total = calculateTotalFeedback(feedback);
+    return total > 0 ? Math.round((feedback.good / total) * 100) : 0;
+  };
+
+  const totalFeedback = calculateTotalFeedback(feedback);
+  const positivePercentage = calculatePositivePercentage(feedback);
 
   return (
     <div>
