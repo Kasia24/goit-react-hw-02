@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { memo } from "react";
 
 const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
   return (
@@ -12,4 +12,4 @@ const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
   );
 };
 
-export default Options;
+export default memo(Options);

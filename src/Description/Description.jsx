@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { memo } from "react";
 
 const Description = () => (
   <div>
@@ -11,4 +11,4 @@ const Description = () => (
   </div>
 );
 
-export default Description;
+export default memo(Description);

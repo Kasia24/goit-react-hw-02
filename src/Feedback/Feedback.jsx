@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { memo } from "react";
 
 const Feedback = ({ feedback, total, positivePercentage }) => {
   return (
@@ -14,4 +14,4 @@ const Feedback = ({ feedback, total, positivePercentage }) => {
   );
 };
 
-export default Feedback;
+export default memo(Feedback);
